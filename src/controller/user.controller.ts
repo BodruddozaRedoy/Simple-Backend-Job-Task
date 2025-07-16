@@ -85,7 +85,7 @@ export const getMe = async (
 
 
 // get all user
-export const getAllUser = async (req:Request, res:Response, next:NextFunction) => {
-    const users = await User.find()
-    res.json(users)
-}
+// export const getAllUser = async (req:Request, res:Response, next:NextFunction) => {
+//     const users = await User.find()
+//     res.json(users)
+// }
