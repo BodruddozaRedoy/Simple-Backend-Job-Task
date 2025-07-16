@@ -8,7 +8,6 @@ This is a minimal backend application that provides user **registration**, **log
 
 > 📡 [https://simple-backend-job-task.vercel.app/](https://simple-backend-job-task.vercel.app/)
 
-> Replace with your actual Vercel deployment link
 
 ---
 
@@ -29,5 +28,11 @@ This is a minimal backend application that provides user **registration**, **log
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/login-and-registration-backend.git
-cd login-and-registration-backend
+git clone https://github.com/BodruddozaRedoy/Simple-Backend-Job-Task.git
+cd simple-backend-job-task
+npm install
+
+PORT=5000
+MONGO_URI=
+JWT_SECRET=
+
