@@ -3,7 +3,7 @@ import cors from 'cors'
 import { errorHandler } from "./middlewares/error.middleware";
 import userRoutes from './routes/user.routes'
 
-const app: Application = express();
+export const app: Application = express();
 
 // middlewares 
 app.use(cors())
@@ -21,4 +21,3 @@ app.get("/", (req:Request, res:Response) => {
 // error handler 
 app.use(errorHandler)
 
-export default app

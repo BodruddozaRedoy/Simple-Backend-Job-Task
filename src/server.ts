@@ -1,15 +1,17 @@
 import dotenv from "dotenv";
 import { connectDB } from "./config/db";
 import { app } from "./app";
+import { Server } from "http";
 
 dotenv.config();
+let server: Server
 
 const PORT = process.env.PORT || 5000;
 
 const main = async () => {
   try {
     await connectDB();
-    app.listen(PORT, () =>
+    server = app.listen(PORT, () =>
       console.log(`Server running on http://localhost:${PORT}`)
     );
   } catch (error) {
