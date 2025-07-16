@@ -6,7 +6,7 @@ This is a minimal backend application that provides user **registration**, **log
 
 ## 🚀 Live API URL
 
-> 📡 [https://your-vercel-app.vercel.app](https://your-vercel-app.vercel.app)
+> 📡 [https://simple-backend-job-task.vercel.app/](https://simple-backend-job-task.vercel.app/)
 
 > Replace with your actual Vercel deployment link
 
