@@ -32,10 +32,8 @@ git clone https://github.com/BodruddozaRedoy/Simple-Backend-Job-Task.git
 cd simple-backend-job-task
 npm install
 
----
-
-```bash
 PORT=5000
 MONGO_URI=
 JWT_SECRET=
 
+npm run dev
