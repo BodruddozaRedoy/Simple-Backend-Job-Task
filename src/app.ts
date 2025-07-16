@@ -12,7 +12,7 @@ app.use(express.json())
 
 // routes
 app.use("/", (req:Request, res:Response) => {
-    res.get("Api working")
+    res.send("Api working")
 }) 
 app.use("/api", userRoutes)
 
