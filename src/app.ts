@@ -11,10 +11,12 @@ app.use(express.json())
 
 
 // routes
-app.use("/", (req:Request, res:Response) => {
+app.use("/api", userRoutes)
+
+
+app.get("/", (req:Request, res:Response) => {
     res.send("Api working")
 }) 
-app.use("/api", userRoutes)
 
 // error handler 
 app.use(errorHandler)
