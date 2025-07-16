@@ -12,20 +12,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const dotenv_1 = __importDefault(require("dotenv"));
-const db_1 = require("./config/db");
-const app_1 = __importDefault(require("./app"));
-dotenv_1.default.config();
-let server;
-const PORT = process.env.PORT || 5000;
-const main = () => __awaiter(void 0, void 0, void 0, function* () {
+exports.authMiddleware = void 0;
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const authMiddleware = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Bearer "))
+        return res.status(401).json({
+            success: false,
+            message: "Unauthorized user",
+        });
+    const token = authHeader.split(" ")[1];
     try {
-        yield (0, db_1.connectDB)();
-        server = app_1.default.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+        const decode = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
+        req.userId = decode.id;
+        next();
     }
     catch (error) {
-        console.error("Failed to connect to DB", error);
-        process.exit(1);
+        res.status(401).json({ success: false, message: "Invalid token" });
     }
 });
-main();
+exports.authMiddleware = authMiddleware;
