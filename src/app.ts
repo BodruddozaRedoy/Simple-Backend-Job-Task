@@ -1,4 +1,4 @@
-import express, { Application } from "express";
+import express, { Application, Request, Response } from "express";
 import cors from 'cors'
 import { errorHandler } from "./middlewares/error.middleware";
 import userRoutes from './routes/user.routes'
@@ -10,7 +10,10 @@ app.use(cors())
 app.use(express.json())
 
 
-// routes 
+// routes
+app.use("/", (req:Request, res:Response) => {
+    res.send("Api working")
+}) 
 app.use("/api", userRoutes)
 
 // error handler 
